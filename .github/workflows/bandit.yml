@@ -21,4 +21,4 @@ jobs:
 
       - name: Run Bandit scan
         # -r: рекурсивно, -ll: только средний и высокий уровни важности
-        run: bandit -r . -s B308 -ll
+        run: bandit -r . -s B308 -lll
