@@ -20,5 +20,4 @@ jobs:
         run: pip install bandit
 
       - name: Run Bandit scan
-        # -r: рекурсивно, -ll: только средний и высокий уровни важности
         run: bandit -r . -s B308 -lll
