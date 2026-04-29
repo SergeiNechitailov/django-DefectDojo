@@ -3,23 +3,25 @@ on:
   push:
     branches: [ "master"]
 jobs:
-  build-test:
+  bandit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm install
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-      - name: Run tests
-        run: npm test
+      - name: Install_Bandit
+        run: pip install bandit
 
-      - name: Build project
-        run: npm run build
+      - name: Run Bandit scan
+        run: bandit -r . -s B308 -lll
 
   deploy:
-    needs: build-test
+    needs: bandit
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
