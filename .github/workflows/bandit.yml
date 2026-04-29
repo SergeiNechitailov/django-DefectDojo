@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Bandit
+      - name: Install_Bandit
         run: pip install bandit
 
       - name: Run Bandit scan
