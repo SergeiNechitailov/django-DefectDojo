@@ -34,6 +34,5 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          password: ${{ secrets.PASSWORD }}
           script: |
-            rsync -avz --delete ./build/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}@${{ secrets.PASSWORD }}:/var/www/html
+            rsync -avz --delete ./build/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html
