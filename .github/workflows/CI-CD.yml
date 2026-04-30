@@ -23,7 +23,7 @@ jobs:
         run: npm run build
 
   deploy:
-    needs: bandit
+    needs: build-test
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps:
