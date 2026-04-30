@@ -8,17 +8,20 @@ jobs:
     runs-on: ubuntu-latest
    
     steps:
+      - name: list
+        run: ls -r
+
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: npm3 install
+        run: npm install
 
       - name: Run tests
-        run: npm3 test
+        run: npm test
 
       - name: Build project
-        run: npm3 run build
+        run: npm run build
 
   deploy:
     needs: build-test
